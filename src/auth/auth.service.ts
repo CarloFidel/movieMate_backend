@@ -48,7 +48,7 @@ export class AuthService {
 
     const user = await this.userRepository.findOne({
       where: { email },
-      select: { email: true, id: true, fullName: true },
+      select: { email: true, password: true, id: true },
     });
 
     //primero pregunto si existe un user con eeste mail
@@ -60,6 +60,8 @@ export class AuthService {
       throw new UnauthorizedException('Credentials are not valid (passowrd)');
 
     const id = user.id;
+    delete user.password
+
 
     return {
       ...user,

@@ -36,7 +36,7 @@ export class User {
   @Column('text', {
     select: false,
   })
-  password!: string;
+  password?: string;
 
   @ApiProperty({
     description: 'Full name of the user',
