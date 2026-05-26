@@ -33,7 +33,7 @@ export class AuthController {
   }
 
   @Get('user/:userId')
-  @Auth(ValidRoles.admin)
+  @Auth()
   @ApiResponse({ status: 200, description: 'User found', type: User })
   @ApiResponse({ status: 404, description: 'User not found' })
   @ApiResponse({ status: 401, description: 'Unauthorized' })
